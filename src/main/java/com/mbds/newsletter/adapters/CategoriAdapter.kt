@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.mbds.newsletter.R
 import com.mbds.newsletter.model.Category
 
-class CategoriesAdapter(private val dataset: List<Category>, private val callback: CategoryCallback) :
+class CategoriesAdapter(private val dataset: List<Category>, private val callback: CallBack) :
     RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
     inner class ViewHolder(private val root: View) : RecyclerView.ViewHolder(root) {
         fun bind(item: Category) {
@@ -22,6 +22,7 @@ class CategoriesAdapter(private val dataset: List<Category>, private val callbac
             }
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val rootView = LayoutInflater.from(parent.context)
             .inflate(R.layout.list_item, parent, false)
@@ -34,6 +35,6 @@ class CategoriesAdapter(private val dataset: List<Category>, private val callbac
 
     override fun getItemCount(): Int = dataset.size
 }
-    interface CategoryCallback {
+    interface CallBack {
         fun onClick(categoryName: String)
     }

@@ -26,7 +26,6 @@ class ArticleAdapter(private val dataset: List<Article>) :
         return ViewHolder(rootView)
     }
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(dataset[position])
     }

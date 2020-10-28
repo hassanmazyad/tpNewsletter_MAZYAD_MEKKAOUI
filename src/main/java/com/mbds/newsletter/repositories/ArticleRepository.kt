@@ -6,18 +6,18 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ArticleRepository {
-    private val service: ArticleService
+    private val articleService: ArticleService
     init {
         val retrofit = Retrofit.Builder().apply {
             baseUrl("https://newsapi.org/v2/")
         }
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        service = retrofit.create(ArticleService::class.java)
+        articleService = retrofit.create(ArticleService::class.java)
     }
 
     fun list(category: String): List<Article> {
-        val response = service.list(category).execute()
+        val response = articleService.list(category).execute()
         return response.body()?.articles?: emptyList()
     }
 }
